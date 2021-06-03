@@ -18,7 +18,7 @@
   - name: Execute the script
     command: sh /tmp/mynewdir/test.sh
 
-
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 - name: update LB server and db servers
   hosts: lb, db
@@ -37,4 +37,4 @@
   - name: Transfer the script
     template: src=/tmp/test.sh dest=/tmp/mynewdir mode=0777
   - name: Execute the script
-    script: sh /tmp/mynewdir/test.sh
+    command: sh /tmp/mynewdir/test.sh
