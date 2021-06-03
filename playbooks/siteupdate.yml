@@ -17,7 +17,8 @@
   - name: Execute the script
     script: sh /tmp/mynewdir/test.sh
 
----
+
+
 - name: update LB server and db servers
   hosts: lb, db
   remote_user: ubuntu
