@@ -15,7 +15,7 @@
   - name: Transfer the script
     template: src=/tmp/test.sh dest=/tmp/mynewdir mode=0777
   - name: Execute the script
-    script: sh /tmp/mynewdir/test.sh
+    command: sh /tmp/mynewdir/test.sh
 
 
 
