@@ -9,14 +9,15 @@
     file:
       path: "/tmp/mynewdir"
       state: directory
-  - name: set timezone to Lagos/Nigeria
+  - name: set timezone to Africa/Lagos
     timezone:
-       name: Lagos/Nigeria
+       name: Africa/Lagos
   - name: Transfer the script
     template: src=/tmp/test.sh dest=/tmp/mynewdir mode=0777
   - name: Execute the script
     script: sh /tmp/mynewdir/test.sh
 
+---
 - name: update LB server and db servers
   hosts: lb, db
   remote_user: ubuntu
@@ -27,9 +28,9 @@
     file:
       path: "/tmp/mynewdir"
       state: directory
-  - name: set timezone to Lagos/Nigeria
+  - name: set timezone to Africa/Lagos
     timezone:
-       name: Lagos/Nigeria
+       name: Africa/Lagos
   - name: Transfer the script
     template: src=/tmp/test.sh dest=/tmp/mynewdir mode=0777
   - name: Execute the script
