@@ -4,7 +4,7 @@
   remote_user: ec2-user
   become: yes
   become_user: root
-  gather_facts: no
+  gather_facts: false
   tasks:
   - name: Creating a new directory
     file:
@@ -25,7 +25,7 @@
   remote_user: ubuntu
   become: yes
   become_user: root
-  gather_facts: no
+  gather_facts: false
   tasks:
   - name: Creating a new directory
     file:
