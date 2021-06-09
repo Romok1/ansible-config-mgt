@@ -2,6 +2,6 @@
 - name: Include dynamic variables 
   hosts: dbmysql
   tasks:
-    - include_playbook: ../dynamic-assignments/env-vars.yml
+    - import_playbook: ../dynamic-assignments/env-vars.yml
   tags:
     - always
