@@ -1,12 +1,7 @@
 ---
 - name: Include dynamic variables 
-  hosts: all
+  hosts: dbmysql
   tasks:
-    - import_playbook: ../static-assignments/common.yml 
     - include_playbook: ../dynamic-assignments/env-vars.yml
   tags:
     - always
-
-- name: Webserver assignment
-  hosts: webservers
-    - import_playbook: ../static-assignments/webservers.yml
