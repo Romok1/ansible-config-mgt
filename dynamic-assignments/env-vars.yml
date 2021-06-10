@@ -10,7 +10,7 @@
           - prod.yml       
           - stage.yml        
           - dev.yml       
-        paths:      
+         paths:      
           - "{{ playbook_dir }}/../env-vars"      
      tags: 
        - always
