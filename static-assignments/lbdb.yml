@@ -1,6 +1,6 @@
 ---
 - name: update LB server and db servers
-  hosts: lb, db
+  hosts: dbm
   remote_user: ubuntu
   become: yes
   become_user: root
