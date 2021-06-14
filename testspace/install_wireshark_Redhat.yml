@@ -1,0 +1,13 @@
+---
+- name: update uatweb1
+  hosts: webserver1
+  remote_user: ec2-user
+  gather_facts: true
+  become: yes
+  become_user: root
+  tasks:
+  - name: ensure wireshark is at the latest version
+    yum:
+      name: wireshark
+      state: latest
+    when: ansible_os_family == 'Redhat'  

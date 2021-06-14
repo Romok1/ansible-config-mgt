@@ -1,0 +1,4 @@
+---
+- name: "output the 'playbook_dir' variable"
+  debug:
+    msg: "{{ playbook_dir }}"

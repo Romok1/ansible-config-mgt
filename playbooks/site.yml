@@ -11,12 +11,12 @@
   import_playbook: ../dynamic-assignments/env-vars.yml
   tags:
     - always
-    
-- name: import databaser file
-  import_playbook: ../static-assignments/lbdb.yml
 
-- name: Webserver assignment
-  import_playbook: ../static-assignments/webservers.yml
+- name: Webserver assignment   
+  import_playbook: ../static-assignments/uat-webservers.yml
+
+- name: import databaser file
+  import_playbook: ../static-assignments/db.yml
 
 - name: Loadbalancers assignment
   import_playbook: ../static-assignments/lb.yml

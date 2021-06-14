@@ -3,8 +3,8 @@
 # Default is true.
 nginx_enable: true
 
-enable_nginx_lb: false
-load_balancer_is_required: false
+enable_nginx_lb: true
+load_balancer_is_required: true
 
 # Install NGINX and NGINX modules.
 # Variables for these options can be found below.

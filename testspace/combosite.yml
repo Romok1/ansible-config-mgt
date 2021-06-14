@@ -1,0 +1,2 @@
+- hosts: all
+- import_playbook: ../testspace/combo.yml

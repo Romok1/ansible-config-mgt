@@ -5,10 +5,9 @@
    - name: looping through list of available files
      include_vars: "{{ item }}"
      with_first_found:
-       - files:
-          - uat.yml   
-          - prod.yml       
-          - stage.yml        
+       - files:  
+          - uat.yml       
+          - prod.yml        
           - dev.yml       
          paths:      
           - "{{ playbook_dir }}/../env-vars"      
