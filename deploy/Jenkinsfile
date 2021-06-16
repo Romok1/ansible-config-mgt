@@ -17,6 +17,7 @@
         }
       }
     }
+    
     stages {
     stage('Package') {
       steps {
@@ -29,10 +30,11 @@
     stage('Deploy') {
       steps {
         script {
-          sh 'echo "Deployin Stage"'
+          sh 'echo "Deploying Stage"'
         }
       }
     }
+
     stages {
     stage('Clean up') {
       steps {
