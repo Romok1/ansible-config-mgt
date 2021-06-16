@@ -1,0 +1,40 @@
+---
+- name: update web and nfs
+  hosts: webservers, nfs
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  gather_facts: false
+  tasks:
+  - name: Creating a new directory
+    file:
+      path: "/tmp/mynewdir"
+      state: directory
+  - name: set timezone to Africa/Lagos
+    timezone:
+       name: Africa/Lagos
+  - name: Transfer the script
+    template: src=/tmp/test.sh dest=/tmp/mynewdir mode=0777
+  - name: Execute the script
+    command: sh /tmp/mynewdir/test.sh
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+- name: update LB server and db servers
+  hosts: lb, db
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  gather_facts: false
+  tasks:
+  - name: Creating a new directory
+    file:
+      path: "/tmp/mynewdir"
+      state: directory
+  - name: set timezone to Africa/Lagos
+    timezone:
+       name: Africa/Lagos
+  - name: Transfer the script
+    template: src=/tmp/test.sh dest=/tmp/mynewdir mode=0777
+  - name: Execute the script
+    command: sh /tmp/mynewdir/test.sh
