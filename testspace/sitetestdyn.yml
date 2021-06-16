@@ -1,0 +1,7 @@
+---
+- name: Include dynamic variables 
+  hosts: all
+  tasks:
+    - include_tasks: ../dynamic-assignments/testdyn.yml
+  tags:
+    - always

@@ -1,0 +1,31 @@
+---
+- name: update uatweb1
+  hosts: webserver1
+  remote_user: ec2-user
+  gather_facts: true
+  become: yes
+  become_user: root
+  tasks:
+  - name: ensure mysql is at the latest version
+    yum:
+      name: "{{item}}"
+      state: latest
+    with_items:
+       - mysql
+    when: ansible_distribution == 'Redhat'  
+
+
+- name: update dbmysql server
+  hosts: dbmysql
+  remote_user: ubuntu
+  gather_facts: true
+  become: yes
+  become_user: root
+  tasks:
+  - name: ensure mysql is at the latest version
+    apt:
+      name: "{{item}}"
+      state: latest
+    with_items:
+       - wireshark
+    when: ansible_distribution == 'Debian'

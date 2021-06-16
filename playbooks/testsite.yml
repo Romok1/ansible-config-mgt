@@ -1,0 +1,5 @@
+---
+- name: search for dir
+  hosts: all
+  tasks:
+    - import_tasks: test.yml

@@ -1,7 +1,8 @@
 ---
-- name: update LB server and db servers
+- name: update dbmysql server
   hosts: dbmysql
   remote_user: ubuntu
+  gather_facts: true
   become: yes
   become_user: root
   tasks:
@@ -9,3 +10,4 @@
     apt:
       name: wireshark
       state: latest
+    when: ansible_os_family == 'Ubuntu'

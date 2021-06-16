@@ -1,0 +1,4 @@
+---
+- name: run vartask
+  hosts: all
+     - import_tasks: ../testspace/testt.yml

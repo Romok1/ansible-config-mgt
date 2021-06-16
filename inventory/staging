@@ -1,0 +1,2 @@
+[dbmysql]
+172.31.16.78 ansible_ssh_user='ubuntu' ansible_ssh_private_key_file=/home/ubuntu/dareproject1.pem
