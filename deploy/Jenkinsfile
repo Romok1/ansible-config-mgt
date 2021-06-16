@@ -17,8 +17,7 @@
         }
       }
     }
-    
-    stages {
+
     stage('Package') {
       steps {
         script {
@@ -35,7 +34,6 @@
       }
     }
 
-    stages {
     stage('Clean up') {
       steps {
         script {
