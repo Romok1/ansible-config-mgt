@@ -1,45 +1,16 @@
-   pipeline {
+pipeline {
     agent any
 
-  stages {
-    stage('Build') {
-      steps {
-        script {
-          sh 'echo "Building Stage"'
+    stages {
+      stage('SCM Checkout') {
+        steps {
+            git 'https://github.com/Romok1/ansible-config-mgt.git'
+        }
+      }
+      stage('Execute Ansible') {
+        steps {
+            ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansiblejenk', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
         }
       }
     }
-
-    stage('Test') {
-      steps {
-        script {
-          sh 'echo "Testing Stage"'
-        }
-      }
-    }
-
-    stage('Package') {
-      steps {
-        script {
-          sh 'echo "Package Stage"'
-        }
-      }
-    }
-
-    stage('Deploy') {
-      steps {
-        script {
-          sh 'echo "Deploying Stage"'
-        }
-      }
-    }
-
-    stage('Clean up') {
-      steps {
-        script {
-          sh 'echo "cleaning up Stage"'
-        }
-      }
-    }
-    }
-}
+}   
