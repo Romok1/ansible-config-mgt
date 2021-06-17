@@ -12,9 +12,6 @@
   tags:
     - always
 
-- name: Webserver assignment   
-  import_playbook: ../static-assignments/uat-webservers.yml
-
 - name: import databaser file
   import_playbook: ../static-assignments/db.yml
 
