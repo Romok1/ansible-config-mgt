@@ -9,7 +9,7 @@ pipeline {
       }
       stage('Execute Ansible') {
         steps {
-            ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansiblejenk', inventory: '/home/ubuntu/ansible-config-mgt/inventory/dev', playbook: 'common-del1.yml'
+            ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansiblejenk', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
         }
       }
     }
