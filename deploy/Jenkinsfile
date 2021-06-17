@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
     ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
+    ROLES_PATH="${WORKSPACE}/roles"
   }
 
      parameters {
