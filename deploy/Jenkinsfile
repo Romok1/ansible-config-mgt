@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
     ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
-    ROLES_PATH="${WORKSPACE}/roles"
+    ROLES_PATH="${WORKSPACE}/roles/mysql"
   }
 
      parameters {
