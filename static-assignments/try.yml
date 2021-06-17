@@ -1,0 +1,12 @@
+---
+- name: update tooling
+  hosts: tooling
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  gather_facts: no
+  tasks:
+  - name: ensure wireshark is at the latest version
+    yum:
+      name: wireshark
+      state: latest
