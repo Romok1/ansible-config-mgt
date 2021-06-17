@@ -1,8 +1,8 @@
 [tooling]
-<SIT-Tooling-Web-Server-Private-IP-Address>
+172.31.24.217
 
 [todo]
-<SIT-Todo-Web-Server-Private-IP-Address>
+172.31.19.10
 
 [nginx]
 <SIT-Nginx-Private-IP-Address>
