@@ -1,5 +1,4 @@
 ---
 - hosts: webserver
-  roles_path: /home/ubuntu/ansible-config-mgt/roles
   roles:
      - webserver
