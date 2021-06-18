@@ -1,6 +1,6 @@
 ---
 - name: import common file
-  import_playbook: ../static-assignments/try.yml
+  import_playbook: ../static-assignments/common.yml
 
 - name: Webserver assignment   
   import_playbook: ../static-assignments/uat-webservers.yml
