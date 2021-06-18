@@ -2,25 +2,27 @@ pipeline {
     agent any
     environment {
     ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
-    ANSIBLE_ROLES_PATH="${WORKSPACE}/roles"
   }
 
      parameters {
-       string(name: 'inventory', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
+       string(name: 'inventory_file', defaultValue: '${inventory_file}',  description: 'This is the inventory file for the environment to deploy configuration')
     }
 
     stages {
       stage('SCM Checkout') {
         steps {
-            git(branch: 'project14cicd', url:'https://github.com/Romok1/ansible-config-mgt.git')
+            git(branch: 'main', url:'https://github.com/Romok1/ansible-config-mgt.git')
+        }
+      }
+      stage('change role path') {
+        steps {
+            sh ('sudo sed -ie "/roles_path=\/home\/ubuntu\/ansible-config-mgt\/roles/roles_path=\/var\/lib\/jenkins\/workspace\/ansible-config-mgt\/roles" /var/lib/jenkins/workspace/ansible-config-mgt/deploy/ansible.cfg')
         }
       }
       stage('Execute Ansible') {
         steps {
-           withEnv(['ANSIBLE_ROLES_PATH=/home/ubuntu/ansible-config-mgt/roles']) {
-            ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansiblejenk', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
-           }
-         }
+            ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansiblejenk', inventory: '${inventory_file}', playbook: 'playbooks/site.yml'
+        }
       }
     }
 }   
