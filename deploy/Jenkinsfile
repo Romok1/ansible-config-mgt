@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
     ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
-    ROLES_PATH="${WORKSPACE}/roles/mysql"
+    ANSIBLE_ROLES_PATH="${WORKSPACE}/roles/mysql"
   }
 
      parameters {
@@ -17,8 +17,10 @@ pipeline {
       }
       stage('Execute Ansible') {
         steps {
+           withEnv(['ANSIBLE_ROLES_PATH=/home/ubuntu/ansible-config-mgt/roles']) {
             ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansiblejenk', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
-        }
+           }
+         }
       }
     }
 }   
