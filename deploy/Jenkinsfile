@@ -14,11 +14,6 @@ pipeline {
             git(branch: 'main', url:'https://github.com/Romok1/ansible-config-mgt.git')
         }
       }
-    #stage('change role path') {
-     #   steps {
-      #      sh 'sudo sed -ie "s/roles_path=\/home\/ubuntu\/ansible-config-mgt\/roles/roles_path=\/var\/lib\/jenkins\/workspace\/ansible-config-mgt\/roles/g" ${ANSIBLE_CONFIG}'
-      #  }
-      #}
       stage('Execute Ansible') {
         steps {
             echo "${ANSIBLE_CONFIG}"
