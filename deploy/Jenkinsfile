@@ -17,8 +17,8 @@ pipeline {
       stage('Execute Ansible') {
         steps {
             echo "${ANSIBLE_CONFIG}"
-            echo 
-            echo
+            echo "hello"
+            echo "hi"
             ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansiblejenk', inventory: "inventory/${params.inventory_file}", playbook: 'playbooks/site.yml'
         }
       }
