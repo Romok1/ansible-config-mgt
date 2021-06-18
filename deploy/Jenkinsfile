@@ -16,7 +16,7 @@ pipeline {
       }
       stage('change role path') {
         steps {
-            sh ('sudo sed -ie "/roles_path=\/home\/ubuntu\/ansible-config-mgt\/roles/roles_path=\/var\/lib\/jenkins\/workspace\/ansible-config-mgt\/roles" /var/lib/jenkins/workspace/ansible-config-mgt/deploy/ansible.cfg')
+            sh 'sudo sed -ie "s/roles_path=\/home\/ubuntu\/ansible-config-mgt\/roles/roles_path=\/var\/lib\/jenkins\/workspace\/ansible-config-mgt\/roles/g" ${ANSIBLE_CONFIG}'
         }
       }
       stage('Execute Ansible') {
