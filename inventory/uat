@@ -1,6 +1,6 @@
 [webserver]
-172.31.21.102 
-172.31.20.209 
+172.31.21.102 ansible_ssh_user='ec2-user'
+172.31.20.209 ansible_ssh_user='ec2-user'
 
 [dbmysql]
 172.31.16.78 
